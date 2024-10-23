@@ -1,3 +1,25 @@
-jupyter-book
-matplotlib
-numpy
+pip install
+pandas 2.2.2
+numpy 1.26.4
+tzdata-2024.1
+contourpy-1.2.1
+cycler-0.12.1
+fonttools-4.52.1
+kiwisolver-1.4.5
+matplotlib-3.9.0
+pillow-10.3.0
+pyparsing-3.1.2
+seaborn-0.13.2
+scipy-1.13.1
+et-xmlfile-1.1.0
+openpyxl-3.1.2
+joblib-1.4.2
+scikit-learn-1.5.0
+threadpoolctl-3.5.0
+coloredlogs-15.0.1
+humanfriendly-10.0
+pyreadline3-3.4.1
+spyder-terminal-1.2.2
+patsy-0.5.6
+statsmodels-0.14.2
+entrypoints-0.4

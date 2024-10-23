@@ -6,7 +6,7 @@ root: intro
 options:  # The options key will be applied to all chapters, but not sub-sections
   numbered: True
 chapters:
-- file: Accuracy_Muscle_Volume_Reconstruction  
-- file: Correlation_Analysis_SIS  
-- file: Correlation_Analysis_TT
-- file: Accuracy_Muscle_Length_Reconstruction
+- file: notebooks/Accuracy_Muscle_Volume_Reconstruction  
+- file: notebooks/Correlation_Analysis_SIS  
+- file: notebooks/Correlation_Analysis_TT
+- file: notebooks/Accuracy_Muscle_Length_Reconstruction
