@@ -1,0 +1,847 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Results 3.2 Paired T-Test and Regression Analysis for Muscle Volumes &#8212; 3D Reconstruction of Shoulder Muscles in Hominoid Primates - Code content</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Accuracy_Muscle_Volume_Reconstruction';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Results 3.3 Correlation Analysis of Supraspinatus, Infraspinatus and Subscapularis" href="Correlation_Analysis_SIS.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/MuscleReconstructions.png" class="logo__image only-light" alt="3D Reconstruction of Shoulder Muscles in Hominoid Primates - Code content - Home"/>
+    <script>document.write(`<img src="_static/MuscleReconstructions.png" class="logo__image only-dark" alt="3D Reconstruction of Shoulder Muscles in Hominoid Primates - Code content - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Results 3.2 Paired T-Test and Regression Analysis for Muscle Volumes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Correlation_Analysis_SIS.html">2. Results 3.3 Correlation Analysis of Supraspinatus, Infraspinatus and Subscapularis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Correlation_Analysis_TT.html">3. SIS 1 Correlation Analysis of Teres Major and Minor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Accuracy_Muscle_Length_Reconstruction.html">4. SIS 3 Paired T-Test and Regression Analysis for Muscle Lengths</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Accuracy_Muscle_Volume_Reconstruction.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Results 3.2 Paired T-Test and Regression Analysis for Muscle Volumes</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">1.1. Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-setup">1.2. 1. Input Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paired-t-test">1.3. 2. Paired T-Test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression-and-visualization">1.4. 3. Linear Regression and Visualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-metrics">1.5. 4. Error Metrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-difference-from-identity-line">1.6. 5. Tests Difference from Identity Line</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="results-3-2-paired-t-test-and-regression-analysis-for-muscle-volumes">
+<h1><span class="section-number">1. </span>Results 3.2 Paired T-Test and Regression Analysis for Muscle Volumes<a class="headerlink" href="#results-3-2-paired-t-test-and-regression-analysis-for-muscle-volumes" title="Permalink to this heading">#</a></h1>
+<p>In this chapter, a paired t-test and regression analysis is performed to compare the reconstructed 3D muscle lengths with experimental measurements.
+The results of the analysis and the figures are used in the manuscript in section 3.2 “Accuracy of Muscle Volume and
+Length Reconstructio”. .</p>
+<section id="imports">
+<h2><span class="section-number">1.1. </span>Imports<a class="headerlink" href="#imports" title="Permalink to this heading">#</a></h2>
+<p>Required packages for this analysis can be found in the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file. Ensure that all
+dependencies are installed before running the script.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">ttest_rel</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># Setting global styles for plots</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+<span class="c1"># ANSI escape code for bold text in print</span>
+<span class="n">bold_start</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[1m&quot;</span>
+<span class="n">bold_end</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[0m&quot;</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="input-setup">
+<h2><span class="section-number">1.2. </span>1. Input Setup<a class="headerlink" href="#input-setup" title="Permalink to this heading">#</a></h2>
+<p>Loads the <code class="docutils literal notranslate"><span class="pre">Muscle_data.xlsx</span></code> file containing all original data and removes specimens where 3D reconstructions have not been performed.</p>
+<div class="cell tag_hide_cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the data from the provided Excel file</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;Muscle_data.xlsx&#39;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+<span class="c1"># Filter out specimens with missing data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">~</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Specimen_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">130</span><span class="p">,</span> <span class="mi">131</span><span class="p">,</span> <span class="mi">129</span><span class="p">])]</span>
+
+<span class="c1"># log transform data</span>
+<span class="n">exp_volumes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Volume_exp (cm³)&#39;</span><span class="p">])</span>
+<span class="n">poly_volumes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Volume_rec (cm³)&#39;</span><span class="p">])</span>
+    
+<span class="c1"># store muscle names and species names    </span>
+<span class="n">muscle_names</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Muscle_Name&#39;</span><span class="p">]</span>
+<span class="n">specimen_names</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Genus&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="paired-t-test">
+<h2><span class="section-number">1.3. </span>2. Paired T-Test<a class="headerlink" href="#paired-t-test" title="Permalink to this heading">#</a></h2>
+<p>Performs a paired t-test of the experimental lengths against the reconstructed lengths and prints the t-statistic and p-value.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Perform paired t-test to compare reconstructed and experimental measurements</span>
+<span class="n">t_stat</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">ttest_rel</span><span class="p">(</span><span class="n">exp_volumes</span><span class="p">,</span> <span class="n">poly_volumes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Paired t-test t-statistic: </span><span class="si">{</span><span class="n">t_stat</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Paired t-test p-value: </span><span class="si">{</span><span class="n">bold_start</span><span class="si">}{</span><span class="n">p_value</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}{</span><span class="n">bold_end</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Paired t-test t-statistic: 1.12
+Paired t-test p-value: <span class=" -Color -Color-Bold">0.27</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="linear-regression-and-visualization">
+<h2><span class="section-number">1.4. </span>3. Linear Regression and Visualization<a class="headerlink" href="#linear-regression-and-visualization" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Perform linear regression</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">exp_volumes</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">poly_volumes</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">intercept</span><span class="p">,</span> <span class="n">slope</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">params</span>
+<span class="n">r_squared</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">rsquared</span>
+
+<span class="c1"># Print the regression summary in a clear format</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+
+<span class="c1"># Define the desired order of muscle names</span>
+<span class="n">desired_order_muscle</span>  <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Supraspinatus&#39;</span><span class="p">,</span> <span class="s1">&#39;Infraspinatus&#39;</span><span class="p">,</span> <span class="s1">&#39;Subscapularis&#39;</span><span class="p">,</span> <span class="s1">&#39;Teres Minor&#39;</span><span class="p">,</span> <span class="s1">&#39;Teres Major&#39;</span><span class="p">]</span>
+
+<span class="c1"># Define the desired order of specimen</span>
+<span class="n">desired_order_specimen</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Hylobates&#39;</span><span class="p">,</span> <span class="s1">&#39;Symphalangus&#39;</span><span class="p">,</span> <span class="s1">&#39;Pongo&#39;</span><span class="p">,</span> <span class="s1">&#39;Gorilla&#39;</span><span class="p">,</span> <span class="s1">&#39;Pan&#39;</span><span class="p">,</span> <span class="s1">&#39;Homo&#39;</span><span class="p">]</span>
+
+<span class="c1"># Define the custom colors for each muscle</span>
+<span class="n">custom_colors</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Supraspinatus&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.467</span><span class="p">,</span> <span class="mf">0.710</span><span class="p">,</span> <span class="mf">0.367</span><span class="p">),</span>
+    <span class="s1">&#39;Infraspinatus&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">,</span> <span class="mf">0.82</span><span class="p">),</span>
+    <span class="s1">&#39;Subscapularis&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.56</span><span class="p">,</span> <span class="mf">0.87</span><span class="p">),</span>
+    <span class="s1">&#39;Teres Minor&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.741</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.384</span><span class="p">),</span>
+    <span class="s1">&#39;Teres Major&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.871</span><span class="p">,</span> <span class="mf">0.435</span><span class="p">,</span> <span class="mf">0.427</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># Define unique markers for specimen</span>
+<span class="n">custom_markers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Hylobates&#39;</span><span class="p">:</span> <span class="s1">&#39;P&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Symphalangus&#39;</span><span class="p">:</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Pongo&#39;</span><span class="p">:</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Gorilla&#39;</span><span class="p">:</span> <span class="s1">&#39;^&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Pan&#39;</span><span class="p">:</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Homo&#39;</span><span class="p">:</span> <span class="s1">&#39;s&#39;</span>
+<span class="p">}</span>
+
+
+<span class="c1"># Create a mapping of muscle names to colors based on the desired order</span>
+<span class="n">muscle_to_color</span> <span class="o">=</span> <span class="p">{</span><span class="n">muscle</span><span class="p">:</span> <span class="n">custom_colors</span><span class="p">[</span><span class="n">muscle</span><span class="p">]</span> <span class="k">for</span> <span class="n">muscle</span> <span class="ow">in</span> <span class="n">desired_order_muscle</span><span class="p">}</span>
+
+<span class="c1"># Create figure for regression and Bland-Altman plots</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="c1"># Plot Linear Regression (left subplot)</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Scatter and regression plot</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">exp_volumes</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">poly_volumes</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">scatter</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Regression line&#39;</span><span class="p">)</span>
+
+<span class="c1"># Scatter plot of the log-transformed data points</span>
+<span class="k">for</span> <span class="n">muscle</span> <span class="ow">in</span> <span class="n">desired_order_muscle</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">specimen</span> <span class="ow">in</span> <span class="n">desired_order_specimen</span><span class="p">:</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Muscle_Name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">muscle</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Genus&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">specimen</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">exp_volumes</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">poly_volumes</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> 
+                    <span class="n">color</span><span class="o">=</span><span class="n">muscle_to_color</span><span class="p">[</span><span class="n">muscle</span><span class="p">],</span> 
+                    <span class="n">marker</span><span class="o">=</span><span class="n">custom_markers</span><span class="p">[</span><span class="n">specimen</span><span class="p">],</span>
+                    <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+                    <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">exp_volumes</span><span class="p">,</span> <span class="n">exp_volumes</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Reconstructed vs Experimental Volumes&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Log Volume Exp&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Log Volume Rec&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+    
+
+<span class="n">equation_text</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Regression line: y = </span><span class="si">{</span><span class="n">slope</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">x + </span><span class="si">{</span><span class="n">intercept</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="se">\n</span><span class="s1">$R^2$ = </span><span class="si">{</span><span class="n">r_squared</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="se">\n</span><span class="s1">Paired t-test: t = </span><span class="si">{</span><span class="n">t_stat</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="se">\n</span><span class="s1">p-value: </span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">equation_text</span><span class="p">,</span> 
+    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> 
+    <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;top&#39;</span>
+<span class="p">)</span>
+
+
+<span class="c1"># Apply custom font to tick labels</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="p">(</span><span class="n">ax1</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">()</span> <span class="o">+</span> <span class="n">ax1</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">()):</span>
+    <span class="n">label</span><span class="o">.</span><span class="n">set_size</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># Add annotation &quot;a&quot;</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+
+
+
+<span class="c1"># Plot Bland-Altman Plot (right subplot)</span>
+<span class="n">differences</span> <span class="o">=</span> <span class="n">poly_volumes</span> <span class="o">-</span> <span class="n">exp_volumes</span>
+<span class="n">means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">poly_volumes</span><span class="p">,</span> <span class="n">exp_volumes</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">differences</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">differences</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.96</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">differences</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">differences</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1.96</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">differences</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">muscle</span> <span class="ow">in</span> <span class="n">desired_order_muscle</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">specimen</span> <span class="ow">in</span> <span class="n">desired_order_specimen</span><span class="p">:</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">muscle_names</span> <span class="o">==</span> <span class="n">muscle</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">specimen_names</span> <span class="o">==</span> <span class="n">specimen</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">means</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">differences</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> 
+                    <span class="n">color</span><span class="o">=</span><span class="n">muscle_to_color</span><span class="p">[</span><span class="n">muscle</span><span class="p">],</span> 
+                    <span class="n">marker</span><span class="o">=</span><span class="n">custom_markers</span><span class="p">[</span><span class="n">specimen</span><span class="p">],</span>
+                    <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+                    <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Bland-Altman Volume Plot&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Log Mean of Volume&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Log Difference in Volume&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+
+<span class="c1"># Apply custom font to tick labels</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="p">(</span><span class="n">ax2</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">()</span> <span class="o">+</span> <span class="n">ax2</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">()):</span>
+    <span class="n">label</span><span class="o">.</span><span class="n">set_size</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+    
+    
+<span class="c1"># Add annotation &quot;a&quot;</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;(b)&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Create legends</span>
+<span class="n">handles_muscles</span> <span class="o">=</span> <span class="p">[</span><span class="n">plt</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">muscle</span><span class="p">,</span>
+                              <span class="n">markerfacecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> 
+                   <span class="k">for</span> <span class="n">muscle</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">muscle_to_color</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+
+<span class="c1"># Create handles with italicized labels</span>
+<span class="n">handles_specimen</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">Line2D</span><span class="p">(</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">marker</span><span class="o">=</span><span class="n">marker</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;$</span><span class="si">{</span><span class="n">specimen</span><span class="si">}</span><span class="s1">$&#39;</span><span class="p">,</span>  <span class="c1"># Italicize the label here</span>
+        <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span>
+        <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">specimen</span><span class="p">,</span> <span class="n">marker</span> <span class="ow">in</span> <span class="n">custom_markers</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="p">]</span>
+
+<span class="c1"># Add legends above and below the plots</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">handles_specimen</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Genus&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">handles_muscles</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Muscles&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower center&#39;</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="c1"># Display plots with adjusted layout</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">])</span>  <span class="c1"># Leave space for legends</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:       Volume_rec (cm³)   R-squared:                       0.943
+Model:                            OLS   Adj. R-squared:                  0.941
+Method:                 Least Squares   F-statistic:                     459.4
+Date:                Wed, 23 Oct 2024   Prob (F-statistic):           6.54e-19
+Time:                        16:02:32   Log-Likelihood:                -4.1266
+No. Observations:                  30   AIC:                             12.25
+Df Residuals:                      28   BIC:                             15.06
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+====================================================================================
+                       coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------------
+const                0.1380      0.176      0.785      0.439      -0.222       0.498
+Volume_exp (cm³)     0.9481      0.044     21.435      0.000       0.857       1.039
+==============================================================================
+Omnibus:                        2.337   Durbin-Watson:                   1.741
+Prob(Omnibus):                  0.311   Jarque-Bera (JB):                1.685
+Skew:                          -0.580   Prob(JB):                        0.431
+Kurtosis:                       2.960   Cond. No.                         14.1
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+<figure class="align-default" id="figmusclevolume">
+<img alt="_images/a8a0a9251a2b85113fd84fcf182080a9b811dd7bfd53936aa4cd96224598bd67.png" src="_images/a8a0a9251a2b85113fd84fcf182080a9b811dd7bfd53936aa4cd96224598bd67.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 1.1 </span><span class="caption-text"><em>Manuscript Figure 3: Accuracy of muscle volume reconstructions. (a) Linear regression of reconstructed (rec) muscle volumes compared to experimentally (exp) measured ones. The red line illustrates the optimal linear regression fit, surrounded by a red shaded area representing the 95% confidence interval of that regression. The gray line represents the identity line. (b) Bland-Altman plot displaying the differences between log-transformed experimental and reconstructed muscle volumes. The mean difference between the two measurements is shown by a red dashed line, while the gray dashed lines indicate the limits of agreement, which are determined as the mean difference ± 1.96 times the standard deviation of the differences.</em></span><a class="headerlink" href="#figmusclevolume" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="error-metrics">
+<h2><span class="section-number">1.5. </span>4. Error Metrics<a class="headerlink" href="#error-metrics" title="Permalink to this heading">#</a></h2>
+<p>Determines the Mean Absolute Error, Root Mean Squared Error and Coefficient of Determination.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate MAE and RMSE</span>
+<span class="n">mae</span> <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">exp_volumes</span><span class="p">,</span> <span class="n">poly_volumes</span><span class="p">)</span>
+<span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">exp_volumes</span><span class="p">,</span> <span class="n">poly_volumes</span><span class="p">))</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">exp_volumes</span><span class="p">,</span> <span class="n">poly_volumes</span><span class="p">)</span>
+
+<span class="c1"># Display error metrics in a table format</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean Absolute Error (MAE): </span><span class="si">{</span><span class="n">mae</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Root Mean Squared Error (RMSE): </span><span class="si">{</span><span class="n">rmse</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Coefficient of Determination (R²): </span><span class="si">{</span><span class="n">r2</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Absolute Error (MAE): 0.22
+Root Mean Squared Error (RMSE): 0.29
+Coefficient of Determination (R²): 0.94
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tests-difference-from-identity-line">
+<h2><span class="section-number">1.6. </span>5. Tests Difference from Identity Line<a class="headerlink" href="#tests-difference-from-identity-line" title="Permalink to this heading">#</a></h2>
+<p>In linear regression, we often want to know if the slope is different from 1, which would indicate a deviation from a perfect one-to-one relationship between the variables.
+High p-values (above 0.05) would indicate that the slope does not significantly differ from 1 and the intercept does not significantly differ from 0.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">intercept_se</span><span class="p">,</span> <span class="n">slope_se</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">bse</span>  <span class="c1"># Standard errors for the intercept and slope</span>
+<span class="n">t_stat_slope</span><span class="p">,</span> <span class="n">t_stat_intercept</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tvalues</span>  <span class="c1"># t-statistics for testing if the slope = 0 and intercept = 0</span>
+
+<span class="c1"># Calculating the t-statistic for testing if the intercept is significantly different from 0</span>
+<span class="c1"># A t-statistic compares the estimated intercept against 0 to check if it is significantly different.</span>
+<span class="n">intercept_t_stat</span> <span class="o">=</span> <span class="p">(</span><span class="n">intercept</span> <span class="o">-</span> <span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">intercept_se</span>
+
+<span class="c1"># To test if the slope is significantly different from 1, we adjust the hypothesis:</span>
+<span class="c1"># Here, we subtract 1 from the estimated slope, then check if the result is significantly different from 0.</span>
+<span class="n">t_stat_slope_vs_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">slope</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">slope_se</span>
+
+<span class="c1"># Calculate the p-value for the t-statistic of the slope vs 1</span>
+<span class="c1"># The p-value indicates the probability of observing this result under the null hypothesis (slope = 1).</span>
+<span class="n">p_value_slope_vs_1</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">t_stat_slope_vs_1</span><span class="p">),</span> <span class="n">df</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">exp_volumes</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># Calculate the p-value for testing if the intercept is different from 0</span>
+<span class="c1"># This p-value helps determine if the intercept differs significantly from 0.</span>
+<span class="n">intercept_p_value</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">intercept_t_stat</span><span class="p">),</span> <span class="n">df</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">exp_volumes</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># Print the results of the hypothesis tests</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t-statistic for intercept vs 0: </span><span class="si">{</span><span class="n">t_stat_intercept</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;p-value for intercept vs 0: </span><span class="si">{</span><span class="n">bold_start</span><span class="si">}{</span><span class="n">intercept_p_value</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}{</span><span class="n">bold_end</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t-statistic for slope vs 1: </span><span class="si">{</span><span class="n">t_stat_slope_vs_1</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;p-value for slope vs 1: </span><span class="si">{</span><span class="n">bold_start</span><span class="si">}{</span><span class="n">p_value_slope_vs_1</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}{</span><span class="n">bold_end</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t-statistic for intercept vs 0: 21.43
+p-value for intercept vs 0: <span class=" -Color -Color-Bold">0.44</span>
+t-statistic for slope vs 1: -1.17
+p-value for slope vs 1: <span class=" -Color -Color-Bold">0.25</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Correlation_Analysis_SIS.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Results 3.3 Correlation Analysis of Supraspinatus, Infraspinatus and Subscapularis</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">1.1. Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-setup">1.2. 1. Input Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paired-t-test">1.3. 2. Paired T-Test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression-and-visualization">1.4. 3. Linear Regression and Visualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-metrics">1.5. 4. Error Metrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-difference-from-identity-line">1.6. 5. Tests Difference from Identity Line</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Julia van Beesel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
