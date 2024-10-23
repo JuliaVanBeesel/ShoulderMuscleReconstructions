@@ -348,11 +348,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">3.1. 1. Imports</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-setup">3.2. 2. Input Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-data">3.3. 3. Filter data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-for-normality">3.4. 4. Tests for normality</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pearson-correlation-analysis">3.5. 5. Pearson Correlation Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">3.1. Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-setup">3.2. Input Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-data">3.3. Filter data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-for-normality">3.4. Tests for normality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pearson-correlation-analysis">3.5. Pearson Correlation Analysis</a></li>
 </ul>
             </nav>
         </div>
@@ -376,7 +376,7 @@ muscles:</p>
 <p>The log-transformation is applied to the origin areas and volumes to normalize the data and improve
 the accuracy of the correlation analysis.</p>
 <section id="imports">
-<h2><span class="section-number">3.1. </span>1. Imports<a class="headerlink" href="#imports" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.1. </span>Imports<a class="headerlink" href="#imports" title="Permalink to this heading">#</a></h2>
 <p>Required packages for this analysis can be found in the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file. Ensure that all dependencies are installed before running the script.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -404,7 +404,7 @@ the accuracy of the correlation analysis.</p>
 </div>
 </section>
 <section id="input-setup">
-<h2><span class="section-number">3.2. </span>2. Input Setup<a class="headerlink" href="#input-setup" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.2. </span>Input Setup<a class="headerlink" href="#input-setup" title="Permalink to this heading">#</a></h2>
 <p>Loads the <code class="docutils literal notranslate"><span class="pre">Muscle_data.xlsx</span></code> file containing all original data and removes specimens where 3D reconstructions have not been performed.rt os</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -430,7 +430,7 @@ the accuracy of the correlation analysis.</p>
 </div>
 </section>
 <section id="filter-data">
-<h2><span class="section-number">3.3. </span>3. Filter data<a class="headerlink" href="#filter-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.3. </span>Filter data<a class="headerlink" href="#filter-data" title="Permalink to this heading">#</a></h2>
 <p>Remove Supraspinatus, Infraspinatus and Subscapularis from the analysis to investigate them separately.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -454,7 +454,7 @@ the accuracy of the correlation analysis.</p>
 </div>
 </section>
 <section id="tests-for-normality">
-<h2><span class="section-number">3.4. </span>4. Tests for normality<a class="headerlink" href="#tests-for-normality" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.4. </span>Tests for normality<a class="headerlink" href="#tests-for-normality" title="Permalink to this heading">#</a></h2>
 <p>Performs a Shapiro-Wilk test and evaluates normality using Q-Q plots</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -515,7 +515,7 @@ Shapiro-Wilk test for data2:  ShapiroResult(statistic=0.9379240782979819, pvalue
 </div>
 </section>
 <section id="pearson-correlation-analysis">
-<h2><span class="section-number">3.5. </span>5. Pearson Correlation Analysis<a class="headerlink" href="#pearson-correlation-analysis" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.5. </span>Pearson Correlation Analysis<a class="headerlink" href="#pearson-correlation-analysis" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -568,7 +568,7 @@ Dep. Variable:         Log_Volume_exp   R-squared:                       0.431
 Model:                            OLS   Adj. R-squared:                  0.393
 Method:                 Least Squares   F-statistic:                     11.36
 Date:                Wed, 23 Oct 2024   Prob (F-statistic):            0.00421
-Time:                        17:06:41   Log-Likelihood:                -21.520
+Time:                        17:40:39   Log-Likelihood:                -21.520
 No. Observations:                  17   AIC:                             47.04
 Df Residuals:                      15   BIC:                             48.71
 Df Model:                           1                                         
@@ -727,7 +727,7 @@ The Regression line equation is: <span class=" -Color -Color-Bold">y = 1.08x + 2
 </pre></div>
 </div>
 <figure class="align-default" id="figcorrelationtt">
-<img alt="../_images/06955367f0239e4ee292c9340f3250e55398212da317b52549c40e9086ef1bf4.png" src="../_images/06955367f0239e4ee292c9340f3250e55398212da317b52549c40e9086ef1bf4.png" />
+<img alt="../_images/55659acf4c39fc109b97efdea757bb37c7b9cf8c7bb9926dfeef4b2383060701.png" src="../_images/55659acf4c39fc109b97efdea757bb37c7b9cf8c7bb9926dfeef4b2383060701.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 3.1 </span><span class="caption-text"><em>SI Figure 1: Pearson correlation of logarithmic transformed muscle origin and volume data of teres major and minor muscles. The red line represents the best-fit linear regression line between muscle origin area and muscle volume. The red shaded area around the red line represents the 95% confidence interval for this regression line.</em></span><a class="headerlink" href="#figcorrelationtt" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -801,11 +801,11 @@ The Regression line equation is: <span class=" -Color -Color-Bold">y = 1.08x + 2
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">3.1. 1. Imports</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-setup">3.2. 2. Input Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-data">3.3. 3. Filter data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-for-normality">3.4. 4. Tests for normality</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pearson-correlation-analysis">3.5. 5. Pearson Correlation Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">3.1. Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-setup">3.2. Input Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-data">3.3. Filter data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-for-normality">3.4. Tests for normality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pearson-correlation-analysis">3.5. Pearson Correlation Analysis</a></li>
 </ul>
   </nav></div>
 
