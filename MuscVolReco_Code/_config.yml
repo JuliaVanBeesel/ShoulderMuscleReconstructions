@@ -12,10 +12,11 @@ execute:
 
 
 # Add GitHub buttons to your book
-# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+repository:
+  url: https://github.com/JuliaVanBeesel/ShoulderMuscleReconstructions/tree/main
 html:
+  use_repository_button: true
   use_issues_button: false
-  use_repository_button: false
   hide-code: true
 
 # Jupyter-specific settings
