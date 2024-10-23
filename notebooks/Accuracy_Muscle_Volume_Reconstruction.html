@@ -349,11 +349,11 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">1.1. Imports</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-setup">1.2. 1. Input Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paired-t-test">1.3. 2. Paired T-Test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression-and-visualization">1.4. 3. Linear Regression and Visualization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-metrics">1.5. 4. Error Metrics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-difference-from-identity-line">1.6. 5. Tests Difference from Identity Line</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-setup">1.2. Input Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paired-t-test">1.3. Paired T-Test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression-and-visualization">1.4. Linear Regression and Visualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-metrics">1.5. Error Metrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-difference-from-identity-line">1.6. Tests Difference from Identity Line</a></li>
 </ul>
             </nav>
         </div>
@@ -404,7 +404,7 @@ dependencies are installed before running the script.</p>
 </div>
 </section>
 <section id="input-setup">
-<h2><span class="section-number">1.2. </span>1. Input Setup<a class="headerlink" href="#input-setup" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.2. </span>Input Setup<a class="headerlink" href="#input-setup" title="Permalink to this heading">#</a></h2>
 <p>Loads the <code class="docutils literal notranslate"><span class="pre">Muscle_data.xlsx</span></code> file containing all original data and removes specimens where 3D reconstructions have not been performed.</p>
 <div class="cell tag_hide_cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -434,7 +434,7 @@ dependencies are installed before running the script.</p>
 </div>
 </section>
 <section id="paired-t-test">
-<h2><span class="section-number">1.3. </span>2. Paired T-Test<a class="headerlink" href="#paired-t-test" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.3. </span>Paired T-Test<a class="headerlink" href="#paired-t-test" title="Permalink to this heading">#</a></h2>
 <p>Performs a paired t-test of the experimental lengths against the reconstructed lengths and prints the t-statistic and p-value.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -460,7 +460,7 @@ Paired t-test p-value: <span class=" -Color -Color-Bold">0.27</span>
 </div>
 </section>
 <section id="linear-regression-and-visualization">
-<h2><span class="section-number">1.4. </span>3. Linear Regression and Visualization<a class="headerlink" href="#linear-regression-and-visualization" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.4. </span>Linear Regression and Visualization<a class="headerlink" href="#linear-regression-and-visualization" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -622,7 +622,7 @@ Dep. Variable:       Volume_rec (cm³)   R-squared:                       0.943
 Model:                            OLS   Adj. R-squared:                  0.941
 Method:                 Least Squares   F-statistic:                     459.4
 Date:                Wed, 23 Oct 2024   Prob (F-statistic):           6.54e-19
-Time:                        17:06:33   Log-Likelihood:                -4.1266
+Time:                        17:40:31   Log-Likelihood:                -4.1266
 No. Observations:                  30   AIC:                             12.25
 Df Residuals:                      28   BIC:                             15.06
 Df Model:                           1                                         
@@ -644,7 +644,7 @@ Notes:
 </pre></div>
 </div>
 <figure class="align-default" id="figmusclevolume">
-<img alt="../_images/30ce6276f8fe0bef672ab34bdfb229980ba7d3e3e4aa7ede638af79dcee07f92.png" src="../_images/30ce6276f8fe0bef672ab34bdfb229980ba7d3e3e4aa7ede638af79dcee07f92.png" />
+<img alt="../_images/adfdf1a5181eb4efaf6e09cd3c10bad2802443e1f7b2091754520d541f921939.png" src="../_images/adfdf1a5181eb4efaf6e09cd3c10bad2802443e1f7b2091754520d541f921939.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 1.1 </span><span class="caption-text"><em>Manuscript Figure 3: Accuracy of muscle volume reconstructions. (a) Linear regression of reconstructed (rec) muscle volumes compared to experimentally (exp) measured ones. The red line illustrates the optimal linear regression fit, surrounded by a red shaded area representing the 95% confidence interval of that regression. The gray line represents the identity line. (b) Bland-Altman plot displaying the differences between log-transformed experimental and reconstructed muscle volumes. The mean difference between the two measurements is shown by a red dashed line, while the gray dashed lines indicate the limits of agreement, which are determined as the mean difference ± 1.96 times the standard deviation of the differences.</em></span><a class="headerlink" href="#figmusclevolume" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -653,7 +653,7 @@ Notes:
 </div>
 </section>
 <section id="error-metrics">
-<h2><span class="section-number">1.5. </span>4. Error Metrics<a class="headerlink" href="#error-metrics" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.5. </span>Error Metrics<a class="headerlink" href="#error-metrics" title="Permalink to this heading">#</a></h2>
 <p>Determines the Mean Absolute Error, Root Mean Squared Error and Coefficient of Determination.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -685,7 +685,7 @@ Coefficient of Determination (R²): 0.94
 </div>
 </section>
 <section id="tests-difference-from-identity-line">
-<h2><span class="section-number">1.6. </span>5. Tests Difference from Identity Line<a class="headerlink" href="#tests-difference-from-identity-line" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.6. </span>Tests Difference from Identity Line<a class="headerlink" href="#tests-difference-from-identity-line" title="Permalink to this heading">#</a></h2>
 <p>In linear regression, we often want to know if the slope is different from 1, which would indicate a deviation from a perfect one-to-one relationship between the variables.
 High p-values (above 0.05) would indicate that the slope does not significantly differ from 1 and the intercept does not significantly differ from 0.</p>
 <div class="cell tag_hide-input docutils container">
@@ -800,11 +800,11 @@ p-value for slope vs 1: <span class=" -Color -Color-Bold">0.25</span>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">1.1. Imports</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-setup">1.2. 1. Input Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paired-t-test">1.3. 2. Paired T-Test</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression-and-visualization">1.4. 3. Linear Regression and Visualization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-metrics">1.5. 4. Error Metrics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-difference-from-identity-line">1.6. 5. Tests Difference from Identity Line</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-setup">1.2. Input Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paired-t-test">1.3. Paired T-Test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression-and-visualization">1.4. Linear Regression and Visualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-metrics">1.5. Error Metrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-difference-from-identity-line">1.6. Tests Difference from Identity Line</a></li>
 </ul>
   </nav></div>
 
