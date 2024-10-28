@@ -183,8 +183,8 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Results 3.2 Paired T-Test and Regression Analysis for Muscle Volumes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Correlation_Analysis_SIS.html">2. Results 3.3 Correlation Analysis of Supraspinatus, Infraspinatus and Subscapularis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Correlation_Analysis_TT.html">3. SIS 1 Correlation Analysis of Teres Major and Minor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Accuracy_Muscle_Length_Reconstruction.html">4. SIS 3 Paired T-Test and Regression Analysis for Muscle Lengths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Correlation_Analysis_TT.html">3. SI 1 Correlation Analysis of Teres Major and Minor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Accuracy_Muscle_Length_Reconstruction.html">4. SI 3 Paired T-Test and Regression Analysis for Muscle Lengths</a></li>
 </ul>
 
     </div>
@@ -367,9 +367,9 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="results-3-2-paired-t-test-and-regression-analysis-for-muscle-volumes">
 <h1><span class="section-number">1. </span>Results 3.2 Paired T-Test and Regression Analysis for Muscle Volumes<a class="headerlink" href="#results-3-2-paired-t-test-and-regression-analysis-for-muscle-volumes" title="Permalink to this heading">#</a></h1>
-<p>In this chapter, a paired t-test and regression analysis is performed to compare the reconstructed 3D muscle lengths with experimental measurements.
-The results of the analysis and the figures are used in the manuscript in section 3.2 “Accuracy of Muscle Volume and
-Length Reconstructio”. .</p>
+<p>In this chapter, a paired t-test and regression analysis is performed to compare the reconstructed 3D muscle volumes with experimental measurements.
+The results of the analysis and the figures are presented in the manuscript in section 3.2 “Accuracy of Muscle Volume and
+Length Reconstruction”.</p>
 <section id="imports">
 <h2><span class="section-number">1.1. </span>Imports<a class="headerlink" href="#imports" title="Permalink to this heading">#</a></h2>
 <p>Required packages for this analysis can be found in the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file. Ensure that all
@@ -435,7 +435,7 @@ dependencies are installed before running the script.</p>
 </section>
 <section id="paired-t-test">
 <h2><span class="section-number">1.3. </span>Paired T-Test<a class="headerlink" href="#paired-t-test" title="Permalink to this heading">#</a></h2>
-<p>Performs a paired t-test of the experimental lengths against the reconstructed lengths and prints the t-statistic and p-value.</p>
+<p>Performs a paired t-test of the experimental volumes against the reconstructed volumes and prints the t-statistic and p-value.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -525,6 +525,7 @@ Paired t-test p-value: <span class=" -Color -Color-Bold">0.27</span>
                     <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
                     <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
 
+<span class="c1"># plot identity line</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">exp_volumes</span><span class="p">,</span> <span class="n">exp_volumes</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
 
 
@@ -621,8 +622,8 @@ Paired t-test p-value: <span class=" -Color -Color-Bold">0.27</span>
 Dep. Variable:       Volume_rec (cm³)   R-squared:                       0.943
 Model:                            OLS   Adj. R-squared:                  0.941
 Method:                 Least Squares   F-statistic:                     459.4
-Date:                Wed, 23 Oct 2024   Prob (F-statistic):           6.54e-19
-Time:                        17:40:31   Log-Likelihood:                -4.1266
+Date:                Mon, 28 Oct 2024   Prob (F-statistic):           6.54e-19
+Time:                        08:16:40   Log-Likelihood:                -4.1266
 No. Observations:                  30   AIC:                             12.25
 Df Residuals:                      28   BIC:                             15.06
 Df Model:                           1                                         
@@ -644,9 +645,9 @@ Notes:
 </pre></div>
 </div>
 <figure class="align-default" id="figmusclevolume">
-<img alt="../_images/adfdf1a5181eb4efaf6e09cd3c10bad2802443e1f7b2091754520d541f921939.png" src="../_images/adfdf1a5181eb4efaf6e09cd3c10bad2802443e1f7b2091754520d541f921939.png" />
+<img alt="../_images/da3487e3627079726abbd4c25c35c10a8314c5b52495f76ec8febfe57f6f736a.png" src="../_images/da3487e3627079726abbd4c25c35c10a8314c5b52495f76ec8febfe57f6f736a.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 1.1 </span><span class="caption-text"><em>Manuscript Figure 3: Accuracy of muscle volume reconstructions. (a) Linear regression of reconstructed (rec) muscle volumes compared to experimentally (exp) measured ones. The red line illustrates the optimal linear regression fit, surrounded by a red shaded area representing the 95% confidence interval of that regression. The gray line represents the identity line. (b) Bland-Altman plot displaying the differences between log-transformed experimental and reconstructed muscle volumes. The mean difference between the two measurements is shown by a red dashed line, while the gray dashed lines indicate the limits of agreement, which are determined as the mean difference ± 1.96 times the standard deviation of the differences.</em></span><a class="headerlink" href="#figmusclevolume" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.1 </span><span class="caption-text"><em>Manuscript Figure 3: Accuracy of muscle volume reconstructions. (a) Linear regression of reconstructed (rec) muscle volumes compared to experimentally (exp) measured ones. The red line illustrates the optimal linear regression fit, surrounded by a red shaded area representing the 95% confidence interval of that regression. The grey line represents the identity line. (b) Bland-Altman plot displaying the differences between log-transformed experimental and reconstructed muscle volumes. The mean difference between the two measurements is shown by a red dashed line, while the grey dashed lines indicate the limits of agreement, which are determined as the mean difference ± 1.96 times the standard deviation of the differences.</em></span><a class="headerlink" href="#figmusclevolume" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </div>
